@@ -1,0 +1,32 @@
+.page-container{
+  background-color: lightsteelblue;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-content{
+  /*background-color: lightblue;*/
+  max-width: 60vw;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page-header{
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.table{
+  margin: 10px;
+
+}
+
+
+
