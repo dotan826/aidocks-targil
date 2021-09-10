@@ -50,7 +50,13 @@
       </ng-template>
     </p-table>
 
-
+  <div class="connection-area">
+    <h3>Connection :</h3>
+    <p-dropdown [options]="origins" [(ngModel)]="selectedOrigin" optionLabel="name" placeholder="Origin"></p-dropdown>
+    <p-dropdown [options]="destinations" [(ngModel)]="selectedDestination" optionLabel="name" placeholder="Destination"></p-dropdown>
+    <button pButton type="button" label="Show Connections" (click)="showConnection()"></button>
+    <button pButton type="button" label="Reset" (click)="resetListOfFlights()"></button>
+  </div>
 
   </div>
 </div>

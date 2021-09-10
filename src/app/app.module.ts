@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
+import {DropdownModule} from 'primeng/dropdown';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import {TableModule} from 'primeng/table';
     BrowserModule,
     BrowserAnimationsModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    DropdownModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,8 +25,17 @@
 
 .table{
   margin: 10px;
-
 }
 
+.connection-area{
+  /*background-color: lightsalmon;*/
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.connection-area > * {
+  margin: 10px;
+}
 
