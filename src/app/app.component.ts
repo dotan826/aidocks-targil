@@ -24,24 +24,36 @@ export class AppComponent {
   destinations: Destination[] = [];
   selectedDestination: Destination = { name: '' };
 
+  loading: boolean = false;
 
   constructor(private listAndSearch: ListAndSearchService) {
-    this.flights = listAndSearch.getFlights(); // get flight list
+    this.loading = true;
 
-    /**
-     * Initialize connection selects - Origin & Destination
-     */
-    this.flights.map((flight) => {
-      this.origins.push({ name: flight.origin });
-      this.destinations.push({ name: flight.destination });
-    })
+    this.listAndSearch.getFlights().subscribe((flights) => {
+      this.flights = flights;
+
+      /**
+       * Initialize connection selects - Origin & Destination
+       */
+      this.flights.map((flight) => {
+        this.origins.push({ name: flight.origin });
+        this.destinations.push({ name: flight.destination });
+      })
+      this.loading = false;
+    });
+
   }
 
   /**
    * Reset list of flights.
    */
   public resetListOfFlights = () => {
-    this.flights = this.listAndSearch.getFlights(); // get flight list
+    this.loading = true;
+
+    this.listAndSearch.getFlights().subscribe((flights) => {
+      this.flights = flights;
+      this.loading = false;
+    });
   }
 
   /**
@@ -60,10 +72,9 @@ export class AppComponent {
       window.alert('Please select Origin and Destination to show.')
     }
     else{
-      // console.log('You selected Origin : ' + this.selectedOrigin.name + ' and Destination : ' + this.selectedDestination.name + '.');
       let tempFlights: Flight[] = [];
       for(let x=0; x<this.flights.length; x++){
-        for(let y=x+1; y<this.flights.length; y++){
+        for(let y=0; y<this.flights.length; y++){
           if(this.flights[x].origin.localeCompare(this.selectedOrigin.name) === 0 &&
             this.flights[y].destination.localeCompare(this.selectedDestination.name) === 0 &&
             this.flights[x].destination.localeCompare(this.flights[y].origin) === 0

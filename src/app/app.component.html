@@ -4,7 +4,7 @@
       Airline Ltd.
     </div>
 
-    <p-table [value]="flights" class="table">
+    <p-table [value]="flights" class="table" [loading]="loading">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th>
